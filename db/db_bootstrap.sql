@@ -19,7 +19,7 @@ CREATE TABLE waiters (
     CONSTRAINT fk_1
         FOREIGN KEY (wsuper_id) REFERENCES waiters (waiter_id)
         ON UPDATE CASCADE
-        ON DELETE RESTRICT 
+        ON DELETE RESTRICT
 );
 
 CREATE TABLE customers (
