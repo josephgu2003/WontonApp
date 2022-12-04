@@ -1,37 +1,26 @@
 from flask import Blueprint, request, jsonify, make_response
 import json
-from src import db
-
+from src import execute_db
 
 customers = Blueprint('customers', __name__)
 
 # Get all customers from the DB
 @customers.route('/customers', methods=['GET'])
 def get_customers():
-    cursor = db.get_db().cursor()
-    cursor.execute('select customerNumber, customerName,\
-        creditLimit from customers')
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
-    return the_response
+    return execute_db('select * from customers')
+
+# Get all active customers from the DB
+@customers.route('/active_customers', methods=['GET'])
+def get_active_customers():
+    return execute_db('select * from customers where customers.active == true;')
+
+# Get all active customers from the DB
+@customers.route('/customers', methods=['POST'])
+def make_customer_order():
+    return execute_db('INSERT INTO customer_menu ({id}, {name})'
+                   .format(id = request.form.get("customer_id"), name = request.form.get("order_name")))
 
 # Get customer detail for customer with particular userID
 @customers.route('/customers/<userID>', methods=['GET'])
 def get_customer(userID):
-    cursor = db.get_db().cursor()
-    cursor.execute('select * from customers where customerNumber = {0}'.format(userID))
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
-    return the_response
+    return execute_db('select * from customers where customerNumber = {0}'.format(userID))

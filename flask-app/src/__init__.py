@@ -6,6 +6,16 @@ from flaskext.mysql import MySQL
 # create a MySQL object that we will use in other parts of the API
 db = MySQL()
 
+def execute_db(sql):
+    cur = db.get_db().cursor()
+    cur.execute(sql)
+    row_headers = [x[0] for x in cur.description]
+    json_data = []
+    theData = cur.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    return jsonify(json_data)
+
 def create_app():
     app = Flask(__name__)
     
