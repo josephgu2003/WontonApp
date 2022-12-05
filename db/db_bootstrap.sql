@@ -87,7 +87,9 @@ CREATE TABLE menu_item (
 );
 
 INSERT INTO menu_item VALUES('Steak', 40.00, 'Steak info'),
-                            ('Pasta', 18.00, 'Pasta info');
+                            ('Pasta', 18.00, 'Pasta info'),
+                            ('Fried Rice', 10.50, 'Fried Rice info'),
+                            ('BBQ Chicken', 21.00, 'BBQ Chicken info');
 
 CREATE TABLE ingredients (
     ingredient_name varchar(40) PRIMARY KEY NOT NULL,
@@ -95,7 +97,11 @@ CREATE TABLE ingredients (
 );
 
 INSERT INTO ingredients VALUES('Vegetable Oil', 10),
-                              ('Butter', 5);
+                              ('Butter', 5),
+                              ('Shrimp', 231),
+                              ('Tomato', 100),
+                              ('Salt', 543),
+                              ('Cheese', 24);
 
 
 CREATE TABLE customer_menu (
@@ -137,7 +143,9 @@ CREATE TABLE cooks_menu (
 );
 
 INSERT INTO cooks_menu VALUES(0000001, 'Steak'),
-                             (0000002, 'Pasta');
+                             (0000002, 'Pasta'),
+                             (0000001, 'Fried Rice'),
+                             (0000002, 'BBQ Chicken');
 
 CREATE TABLE cooks_waiters (
     waiter_id char(6) NOT NULL,
@@ -165,4 +173,8 @@ CREATE TABLE ingre_menu (
 );
 
 INSERT INTO ingre_menu VALUES('Vegetable Oil', 'Pasta', 3.4),
-                             ('Butter', 'Steak', 2.0);
+                             ('Butter', 'Steak', 2.0),
+                             ('Salt', 'Steak', 1.0),
+                             ('Shrimp', 'Pasta', 4.0),
+                             ('Tomato', 'Pasta', 4.1),
+                             ('Cheese', 'Pasta', 1.1);
