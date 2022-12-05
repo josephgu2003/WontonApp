@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, make_response
 import json
-from src import execute_db
+from src import execute_db, execute_post_request
 
 miscellaneous = Blueprint('miscellaneous', __name__)
 
@@ -33,3 +33,9 @@ def get_entire_inventory():
 @miscellaneous.route('/miscellaneous/current_orders', methods=['GET'])
 def get_unfulfilled_orders():
     return execute_db('select * from customer_menu where fulfilled = FALSE')
+
+# Updates a given order to now be fulfilled
+@miscellaneous.route('/miscellaneous/update_order/<customer_id>', methods=['POST'])
+def make_customer_order(customer_id):
+    return execute_post_request(f'UPDATE customer_menu SET fulfilled = TRUE,'
+                                f' WHERE cust_id = \''+ str(customer_id) + '\'')
