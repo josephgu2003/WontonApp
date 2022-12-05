@@ -58,6 +58,27 @@ CREATE TABLE cooks (
 
 INSERT INTO cooks VALUES(0000001, 'Jack', 4, 0000001),
                         (0000002, 'Vergil', 8, NULL);
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('5200448', 'Had', 9, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('3842508', 'Harlene', 2, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('9883049', 'Kimball', 6, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('3808199', 'Tome', 2, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('7359367', 'Boniface', 2, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('2699947', 'Daile', 10, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('4799816', 'Opaline', 4, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('1094586', 'Bendicty', 8, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('3663174', 'Ignacio', 7, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('2717692', 'Bald', 2, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('1936084', 'Bernice', 6, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('2866794', 'Dionisio', 1, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('4317142', 'Leola', 8, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('0307542', 'Bettye', 1, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('1294139', 'Dalila', 8, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('3705618', 'Martynne', 4, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('8326427', 'Elianora', 9, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('6276253', 'Clarisse', 3, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('2308846', 'Locke', 10, '0000002');
+insert into cooks (cook_id, name, work_hours, csuper_id) values ('9249643', 'Phineas', 4, '0000002');
+
 
 CREATE TABLE menu_item (
     name varchar(40) PRIMARY KEY NOT NULL,
