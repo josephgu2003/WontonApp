@@ -24,6 +24,7 @@ def get_customers_of_waiter():
 @waiters.route('/get_meals_to_serve/', methods=['GET'])
 def get_meals_to_serve():
     return execute_db('select *' +
-                        ' from cust_menu join customers on cust_menu.cust_id = customers.cust_id ' 
-                      'where customers.active = TRUE and cust_menu.fulfilled = TRUE and cust_menu.served = FALSE and waiter_id = \''
+                        ' from customer_menu join customers on customer_menu.cust_id = customers.cust_id ' 
+                      'where customers.active = TRUE and customer_menu.fulfilled = TRUE and '
+                        'customer_menu.served = FALSE and waiter_id = \''
                       + str(request.args.get('waiter_id')) + '\'')
