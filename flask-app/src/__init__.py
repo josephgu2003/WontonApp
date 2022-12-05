@@ -1,6 +1,6 @@
 # Some set up for the application 
 
-from flask import Flask
+from flask import Flask, jsonify
 from flaskext.mysql import MySQL
 
 # create a MySQL object that we will use in other parts of the API
@@ -15,6 +15,11 @@ def execute_db(sql):
     for row in theData:
         json_data.append(dict(zip(row_headers, row)))
     return jsonify(json_data)
+
+def execute_post_request(sql):
+    cur = db.get_db().cursor()
+    cur.execute(sql)
+    return ""
 
 def create_app():
     app = Flask(__name__)
