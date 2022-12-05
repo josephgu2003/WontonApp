@@ -30,3 +30,7 @@ def whole_menu():
 def get_current_customer_orders():
     return execute_db('select * from customer_menu')
 
+# Get all inventory information from ingredients table for cooks to see on Inventory page
+@miscellaneous.route('/miscellaneous/inventory', methods=['GET'])
+def get_entire_inventory():
+    return execute_db('select * from ingredients')
