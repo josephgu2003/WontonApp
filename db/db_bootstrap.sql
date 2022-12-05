@@ -80,6 +80,8 @@ INSERT INTO ingredients VALUES('Vegetable Oil', 10),
 CREATE TABLE customer_menu (
     cust_id char(6) NOT NULL,
     menu_name varchar(40) NOT NULL,
+    fulfilled BOOLEAN NOT NULL,
+    served BOOLEAN NOT NULL DEFAULT FALSE,
     PRIMARY KEY ( cust_id, menu_name ),
     CONSTRAINT fk_cust_menu_1
         FOREIGN KEY (cust_id) REFERENCES customers (cust_id),
@@ -87,8 +89,8 @@ CREATE TABLE customer_menu (
         FOREIGN KEY (menu_name) REFERENCES menu_item (name)
 );
 
-INSERT INTO customer_menu VALUES(12345, 'Steak'),
-                                (12345, 'Pasta');
+INSERT INTO customer_menu VALUES(12345, 'Steak', false, false),
+                                (12345, 'Pasta', false, false);
 
 CREATE TABLE waiters_menu (
     waiter_id char(6) NOT NULL,
