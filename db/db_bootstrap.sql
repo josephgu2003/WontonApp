@@ -36,15 +36,20 @@ CREATE TABLE customers (
         FOREIGN KEY (table_num) REFERENCES tables (table_num)
 );
 
-INSERT INTO tables VALUES(001, FALSE, 6), (002, TRUE, 4);
+INSERT INTO tables VALUES(001, FALSE, 6), (002, FALSE, 4), (003, FALSE, 2), (004, FALSE, 4), (005, TRUE, 4);
 
-INSERT INTO waiters VALUES(123457, 4, 'Joshua', 123457),
-(123456, 3, 'Angel', 123457);
+INSERT INTO waiters VALUES(123457, 4, 'Joshua', 100000),
+(123456, 3, 'Angel', 100000),
+(100000, 10, 'Karen', NULL);
 
 INSERT INTO customers VALUES(12345, 'Joseph', '2022-11-18 22:23:12',
                             123456, 001, 100, TRUE),
                           (12346, 'Ethan', '2022-11-18 22:23:13',
-                            123457, 002, 100, FALSE);
+                            123457, 002, 100, FALSE),
+                          (00001, 'Jonathan', '2022-11-18 22:23:13',
+                            123457, 003, 0, TRUE),
+                          (00002, 'Anna', '2022-11-18 22:23:13',
+                            100000, 004, 0, TRUE);
 
 
 CREATE TABLE cooks (
