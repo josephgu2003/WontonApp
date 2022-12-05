@@ -20,4 +20,9 @@ def get_menu_item_names():
 def something_menu(menu_item_name):
     return execute_db('select * from ingre_menu where menu_name = \'{0}\''.format(menu_item_name))
 
+# Get everything from menu table for cooks to see on their page
+@miscellaneous.route('/miscellaneous/recipes', methods=['GET'])
+def something_menu():
+    return execute_db('select * from ingre_menu')
+
 
