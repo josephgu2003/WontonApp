@@ -22,7 +22,7 @@ def something_menu(menu_item_name):
 
 # Get everything from menu table for cooks to see on their page
 @miscellaneous.route('/miscellaneous/recipes', methods=['GET'])
-def something_menu():
+def whole_menu():
     return execute_db('select * from ingre_menu')
 
 
