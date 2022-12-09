@@ -34,7 +34,7 @@ def seat_customer():
 # Get all customer orders
 @customers.route('/get_all_orders', methods=['GET'])
 def get_all_orders():
-    return execute_db('select cust_id, menu_name from customer_menu')
+    return execute_db('select cust_id, menu_name from customer_menu where fulfilled = False')
 
 # Get customer detail for customer with particular userID
 @customers.route('/get_cust_orders/', methods=['GET'])
