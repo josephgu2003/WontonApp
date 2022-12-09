@@ -182,4 +182,5 @@ INSERT INTO ingre_menu VALUES('Vegetable Oil', 'Pasta', 3.4),
                              ('Salt', 'Steak', 1.0),
                              ('Shrimp', 'Pasta', 4.0),
                              ('Tomato', 'Pasta', 4.1),
-                             ('Cheese', 'Pasta', 1.1);
+                             ('Cheese', 'Pasta', 1.1),
+                             ('Rice', 'Fried Rice', 10);
