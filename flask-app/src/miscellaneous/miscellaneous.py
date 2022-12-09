@@ -23,7 +23,7 @@ def something_menu(menu_item_name):
 # Get everything from menu table for cooks to see on their secondary page
 @miscellaneous.route('/miscellaneous/recipes', methods=['GET'])
 def whole_menu():
-    return execute_db('select * from ingre_menu, order by menu_name')
+    return execute_db('select * from ingre_menu order by menu_name')
 
 # Get all inventory information from ingredients table for cooks to see on Inventory page
 @miscellaneous.route('/miscellaneous/inventory', methods=['GET'])
