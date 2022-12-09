@@ -31,6 +31,11 @@ def lobby_customer():
 def seat_customer():
     return execute_db('')
 
+# Get all customer orders
+@customers.route('/get_all_orders')
+def get_all_orders():
+    return execute_db('select menu_name from customer_menu')
+
 # Get customer detail for customer with particular userID
 @customers.route('/get_cust_orders/', methods=['GET'])
 def get_customer_orders():
