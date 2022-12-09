@@ -17,8 +17,9 @@ def get_active_customers():
 # Get all active customers from the DB
 @customers.route('/make_customer_order', methods=['POST'])
 def make_customer_order():
-    return execute_post_request('INSERT INTO customer_menu values(\'' + str(request.form.get("customer_id")) +
-                                '\', \'' + str(request.form.get("order_name")) + '\')')
+    return execute_post_request('INSERT INTO customer_menu(cust_id, menu_name, fulfilled, served)' +
+                                ' values(\'' + str(request.form.get("customer_id")) +
+                                '\', \'' + str(request.form.get("order_name")) + '\', false, false)')
 
 # add a new customer, meaning they just walked in to waiting area
 @customers.route('/lobby_customer', methods=['POST'])

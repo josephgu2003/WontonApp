@@ -38,9 +38,8 @@ CREATE TABLE customers (
 
 INSERT INTO tables VALUES(001, FALSE, 6), (002, FALSE, 4), (003, FALSE, 2), (004, FALSE, 4), (005, TRUE, 4);
 
-INSERT INTO waiters VALUES(123457, 4, 'Joshua', 100000),
-(123456, 3, 'Angel', 100000),
-(100000, 10, 'Karen', NULL);
+INSERT INTO waiters VALUES(100000, 10, 'Karen', NULL), (123457, 4, 'Joshua', 100000),
+(123456, 3, 'Angel', 100000);
 
 INSERT INTO customers VALUES(12345, 'Joseph', '2022-11-18 22:23:12',
                             123456, 001, 100, TRUE),
@@ -110,19 +109,20 @@ INSERT INTO ingredients VALUES('Vegetable Oil', 10),
 
 
 CREATE TABLE customer_menu (
+    id INT AUTO_INCREMENT NOT NULL,
     cust_id char(6) NOT NULL,
     menu_name varchar(40) NOT NULL,
-    fulfilled BOOLEAN NOT NULL,
+    fulfilled BOOLEAN NOT NULL DEFAULT FALSE,
     served BOOLEAN NOT NULL DEFAULT FALSE,
-    PRIMARY KEY ( cust_id, menu_name ),
+    PRIMARY KEY (id, cust_id, menu_name ),
     CONSTRAINT fk_cust_menu_1
         FOREIGN KEY (cust_id) REFERENCES customers (cust_id),
     CONSTRAINT fk_cust_menu_2
         FOREIGN KEY (menu_name) REFERENCES menu_item (name)
 );
 
-INSERT INTO customer_menu VALUES(12345, 'Steak', false, false),
-                                (12345, 'Pasta', false, false);
+INSERT INTO customer_menu (cust_id, menu_name, fulfilled, served)
+VALUES(12345, 'Steak', false, false), (12345, 'Pasta', false, false);
 
 CREATE TABLE waiters_menu (
     waiter_id char(6) NOT NULL,
