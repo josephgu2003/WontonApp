@@ -32,7 +32,7 @@ def seat_customer():
     return execute_db('')
 
 # Get all customer orders
-@customers.route('/get_all_orders')
+@customers.route('/get_all_orders', methods=['GET'])
 def get_all_orders():
     return execute_db('select menu_name from customer_menu')
 
