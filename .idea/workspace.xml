@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dbbed07-4c82-49f0-9de3-9d003fc4ac75" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/WontonApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WontonApp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/db_bootstrap.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/db_bootstrap.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-app/src/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-app/src/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-app/src/customers/customers.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-app/src/customers/customers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-app/src/miscellaneous/miscellaneous.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-app/src/miscellaneous/miscellaneous.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +15,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="2ISgxPfKkxLXRXPmPBNfiXAj9eG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -39,5 +45,17 @@
       <updated>1670180645183</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

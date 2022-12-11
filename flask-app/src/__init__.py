@@ -4,7 +4,7 @@ from flask import Flask, jsonify
 from flaskext.mysql import MySQL
 
 # create a MySQL object that we will use in other parts of the API
-db = MySQL()
+db = MySQL(autocommit = True)
 
 def execute_db(sql):
     cur = db.get_db().cursor()
@@ -19,6 +19,8 @@ def execute_db(sql):
 def execute_post_request(sql):
     cur = db.get_db().cursor()
     cur.execute(sql)
+    #if commit:
+     #   db.commit
     return ""
 
 def create_app():
@@ -38,7 +40,7 @@ def create_app():
 
     # Initialize the database object with the settings above. 
     db.init_app(app)
-    
+
     # Import the various routes
     from src.views import views
     from src.customers.customers import customers
