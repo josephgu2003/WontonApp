@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4dbbed07-4c82-49f0-9de3-9d003fc4ac75" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/db_bootstrap.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/db_bootstrap.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-app/src/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-app/src/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-app/src/customers/customers.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-app/src/customers/customers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-app/src/products/products.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-app/src/miscellaneous/miscellaneous.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-app/src/miscellaneous/miscellaneous.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-app/src/waiters/waiters.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-app/src/waiters/waiters.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

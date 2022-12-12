@@ -44,5 +44,4 @@ def make_customer_order():
 # Get all unfufilled order id's in a format for drop-down in Appsmith
 @miscellaneous.route('/miscellaneous/get_order_ids', methods=['GET'])
 def get_order_ids():
-    return execute_db('SELECT id as label, id as value from customer_menu where fulfilled = FALSE'
-                                f' WHERE id = ' + str(request.form.get("order_id")))
+    return execute_db('SELECT id as label, id as value from customer_menu where fulfilled = FALSE')
