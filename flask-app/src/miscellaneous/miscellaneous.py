@@ -39,4 +39,9 @@ def get_unfulfilled_orders():
 @miscellaneous.route('/miscellaneous/update_order', methods=['POST'])
 def make_customer_order():
     return execute_post_request(f'UPDATE customer_menu SET fulfilled = TRUE '
-                                f' WHERE id = ' + str(request.form.get("cust_id"))')
+                                f' WHERE id = ' + str(request.form.get("cust_id")))
+
+# Get all unfufilled order id's in a format for drop-down in Appsmith
+@miscellaneous.route('/miscellaneous/get_order_ids', methods=['GET'])
+def get_order_ids():
+    return execute_post_request('SELECT id as label, id as value from customer_menu where fulfilled = FALSE')

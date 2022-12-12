@@ -9,6 +9,7 @@ waiters = Blueprint('waiters', __name__)
 def get_waiters():
     return execute_db('select * from waiters')
 
+# Seat a customer at a table
 @waiters.route('/seat_customer/<cust_id>', methods=['POST'])
 def seat_customer(cust_id):
     return execute_db('update customers set table_num = 3 where customers.cust_id = {0}'.format(cust_id))
@@ -33,4 +34,4 @@ def get_meals_to_serve():
 @waiters.route('/fulfill_customer_order', methods=['POST'])
 def fulfill_customer_order():
     return execute_post_request(f'UPDATE customer_menu SET served = TRUE '
-                                f' WHERE id = \'' + str(request.form.get("cust_id")) + '\'')
+                                f' WHERE id = ' + str(request.form.get("cust_id")))

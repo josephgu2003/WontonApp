@@ -14,7 +14,7 @@ def get_customers():
 def get_active_customers():
     return execute_db('select * from customers where customers.active == true;')
 
-# Get all active customers from the DB
+# make a new customer order
 @customers.route('/make_customer_order', methods=['POST'])
 def make_customer_order():
     return execute_post_request('INSERT INTO customer_menu(id, cust_id, menu_name, fulfilled, served)' +
@@ -40,14 +40,11 @@ def get_all_orders():
 # Get customer detail for customer with particular userID
 @customers.route('/get_cust_orders/', methods=['GET'])
 def get_customer_orders():
-    return execute_db('select menu_name from customer_menu where cust_id = \'{0}\''.format(request.args.get("cust_id")))
+    return execute_db('select menu_name, id, fulfilled, served from customer_menu where cust_id = \'{0}\''.format(request.args.get("cust_id")))
 
-# Get customer detail for customer with particular userID
-@customers.route('/test_get_cust_orders/', methods=['GET'])
-def test_get_customer_orders():
-    return execute_db('select * from customer_menu')
-
+# Get table id of customer
 @customers.route('/get_cust_table_num/', methods=['GET'])
 def get_customer_table():
-    return execute_db('select table_num from'
-                      ' tables join customers where cust_id = \'{0}\''.format(request.args.get("cust_id")))
+    return execute_db('select tables.table_num as TableNumber from'
+                      ' tables join customers on tables.table_num = customers.table_num'
+                      ' where cust_id = \'{0}\''.format(request.args.get("cust_id")))
