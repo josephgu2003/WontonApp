@@ -35,3 +35,9 @@ def get_meals_to_serve():
 def fulfill_customer_order():
     return execute_post_request(f'UPDATE customer_menu SET served = TRUE'
                                 f' WHERE id = ' + request.form.get("cust_id"))
+
+# Get relevant table information from joined tables of customers and tables
+@waiters.route('/get_customers_and_table_info', methods=['GET'])
+def get_customers_and_tables():
+    return execute_db('select * from customers join tables on customers.table_num = tables.table_num '
+                      'where customers.active = TRUE')
