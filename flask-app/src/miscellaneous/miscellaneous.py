@@ -7,7 +7,7 @@ miscellaneous = Blueprint('miscellaneous', __name__)
 # Get all customers from the DB
 @miscellaneous.route('/miscellaneous', methods=['GET'])
 def get_menu():
-    return execute_db('select * from menu_item')
+    return execute_db('select name, price, details from menu_item')
 
 # Get all customers from the DB
 @miscellaneous.route('/miscellaneous/menu_item_names', methods=['GET'])
@@ -36,7 +36,7 @@ def get_unfulfilled_orders():
     return execute_db('select * from customer_menu where fulfilled = FALSE')
 
 # Updates a given order to now be fulfilled
-@miscellaneous.route('/miscellaneous/update_order/<customer_id>', methods=['POST'])
-def make_customer_order(customer_id):
-    return execute_post_request(f'UPDATE customer_menu SET fulfilled = TRUE,'
-                                f' WHERE cust_id = \''+ str(customer_id) + '\'')
+@miscellaneous.route('/miscellaneous/update_order', methods=['POST'])
+def make_customer_order():
+    return execute_post_request(f'UPDATE customer_menu SET fulfilled = TRUE '
+                                f' WHERE cust_id = \'' + str(request.form.get("cust_id")) + '\'')
