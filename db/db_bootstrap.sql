@@ -46,9 +46,9 @@ INSERT INTO customers VALUES(12345, 'Joseph', '2022-11-18 22:23:12',
                           (12346, 'Ethan', '2022-11-18 22:23:13',
                             123457, 002, 100, FALSE),
                           (00001, 'Jonathan', '2022-11-18 22:23:13',
-                            123457, 003, 0, TRUE),
+                            123456, 003, 0, TRUE),
                           (00002, 'Anna', '2022-11-18 22:23:13',
-                            100000, 004, 0, TRUE);
+                            123456, 004, 0, TRUE);
 
 
 CREATE TABLE cooks (
@@ -93,7 +93,10 @@ CREATE TABLE menu_item (
 INSERT INTO menu_item VALUES('Steak', 40.00, 'Steak info'),
                             ('Pasta', 18.00, 'Pasta info'),
                             ('Fried Rice', 10.50, 'Fried Rice info'),
-                            ('BBQ Chicken', 21.00, 'BBQ Chicken info');
+                            ('BBQ Chicken', 21.00, 'BBQ Chicken info'),
+                            ('Wonton Soup', 15.00, 'Wonton Soup info'),
+                            ('Egg Soup', 16.00, 'Egg Soup info'),
+                            ('Soup Noodles', 17.00, 'Soup Noodles info');
 
 CREATE TABLE ingredients (
     ingredient_name varchar(40) PRIMARY KEY NOT NULL,
@@ -105,7 +108,11 @@ INSERT INTO ingredients VALUES('Vegetable Oil', 10),
                               ('Shrimp', 231),
                               ('Tomato', 100),
                               ('Salt', 543),
-                              ('Cheese', 24);
+                              ('Cheese', 24),
+                              ('Eggs', 100),
+                              ('Noodles', 100),
+                              ('Chicken', 50),
+                              ('Rice', 100);
 
 
 CREATE TABLE customer_menu (
@@ -182,4 +189,8 @@ INSERT INTO ingre_menu VALUES('Vegetable Oil', 'Pasta', 3.4),
                              ('Salt', 'Steak', 1.0),
                              ('Shrimp', 'Pasta', 4.0),
                              ('Tomato', 'Pasta', 4.1),
-                             ('Cheese', 'Pasta', 1.1);
+                             ('Cheese', 'Pasta', 1.1),
+                             ('Rice', 'Fried Rice', 1.0),
+                             ('Tomato', 'Fried Rice', 1.0),
+                             ('Chicken', 'BBQ Chicken', 1.0),
+                             ('Eggs', 'Egg Soup', 1.0);

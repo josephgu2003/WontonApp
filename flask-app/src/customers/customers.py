@@ -17,12 +17,9 @@ def get_active_customers():
 # Get all active customers from the DB
 @customers.route('/make_customer_order', methods=['POST'])
 def make_customer_order():
-    #execute_post_request('INSERT INTO customer_menu (cust_id, menu_name, fulfilled, served) VALUES(12346, \'Fried Rice\', false, false)')
-
     return execute_post_request('INSERT INTO customer_menu(id, cust_id, menu_name, fulfilled, served)' +
                          ' values(default, ' + str(request.form.get("customer_id")) +
-                         ', \'' + str(request.form.get("order_name")) + '\', false, false)', True)
-
+                         ', \'' + str(request.form.get("order_name")) + '\', false, false)')
 
 
 # add a new customer, meaning they just walked in to waiting area
@@ -49,3 +46,8 @@ def get_customer_orders():
 @customers.route('/test_get_cust_orders/', methods=['GET'])
 def test_get_customer_orders():
     return execute_db('select * from customer_menu')
+
+@customers.route('/get_cust_table_num/', methods=['GET'])
+def get_customer_table():
+    return execute_db('select table_num from'
+                      ' tables join customers where cust_id = \'{0}\''.format(request.args.get("cust_id")))
