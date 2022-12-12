@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, make_response
 import json
-from src import execute_db
+from src import execute_db, execute_post_request
 
 waiters = Blueprint('waiters', __name__)
 
@@ -28,3 +28,9 @@ def get_meals_to_serve():
                       'where customers.active = TRUE and customer_menu.fulfilled = TRUE and '
                         'customer_menu.served = FALSE and waiter_id = \''
                       + str(request.args.get('waiter_id')) + '\'')
+
+# Updates served based on order id given
+@waiters.route('/miscellaneous/update_order', methods=['POST'])
+def fulfill_customer_order():
+    return execute_post_request(f'UPDATE customer_menu SET served = TRUE '
+                                f' WHERE id = \'' + str(request.form.get("cust_id")) + '\'')
