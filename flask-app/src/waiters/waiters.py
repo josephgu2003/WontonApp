@@ -45,7 +45,7 @@ def fulfill_customer_order():
 # Get relevant table information from joined tables of customers and tables
 @waiters.route('/get_customers_and_table_info', methods=['GET'])
 def get_customers_and_tables():
-    return execute_db('select customers.cust_id, occupancy, tables.table_num, '
+    return execute_db('select customers.cust_id, occupancy, tables.table_num, state'
                       'waiter_id from customers join tables on customers.table_num = tables.table_num '
                       'where customers.active = TRUE')
 
