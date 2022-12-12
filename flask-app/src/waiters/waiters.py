@@ -33,5 +33,5 @@ def get_meals_to_serve():
 # Updates served based on order id given
 @waiters.route('/fulfill_customer_order', methods=['POST'])
 def fulfill_customer_order():
-    return execute_post_request(f'UPDATE customer_menu SET served = TRUE '
+    return execute_post_request(f'UPDATE customer_menu SET served = TRUE'
                                 f' WHERE id = ' + str(request.form.get("cust_id")))
