@@ -17,8 +17,8 @@ def seat_customer(cust_id):
 # Seat a customer at a table
 @waiters.route('/update_table_state/', methods=['GET'])
 def update_table_state():
-    return execute_db('update tables set state = ' + request.args.get()
-                      + 'where table_num = ' + request.args.get())
+    return execute_post_request('update tables set state = ' + request.args.get("state")
+                      + ' where table_num = \'' + str(request.args.get("table_num")) + '\'')
 
 @waiters.route('/customers_of_waiter/', methods=['GET'])
 def get_customers_of_waiter():
