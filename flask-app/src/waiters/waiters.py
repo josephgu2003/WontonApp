@@ -14,6 +14,12 @@ def get_waiters():
 def seat_customer(cust_id):
     return execute_db('update customers set table_num = 3 where customers.cust_id = {0}'.format(cust_id))
 
+# Seat a customer at a table
+@waiters.route('/update_table_state/', methods=['GET'])
+def update_table_state():
+    return execute_db('update tables set state = ' + request.args.get()
+                      + 'where table_num = ' + request.args.get())
+
 @waiters.route('/customers_of_waiter/', methods=['GET'])
 def get_customers_of_waiter():
     return execute_db('select name, table_num, payment' +
@@ -24,7 +30,7 @@ def get_customers_of_waiter():
 # Gets the meals ready to be served to customers of this waiter
 @waiters.route('/get_meals_to_serve/', methods=['GET'])
 def get_meals_to_serve():
-    return execute_db('select cust_id, id, table_num, name, menu_name' +
+    return execute_db('select customers.cust_id, id, table_num, name, menu_name' +
                         ' from customer_menu join customers on customer_menu.cust_id = customers.cust_id ' 
                       'where customers.active = TRUE and customer_menu.fulfilled = TRUE and '
                         'customer_menu.served = FALSE and waiter_id = \''
