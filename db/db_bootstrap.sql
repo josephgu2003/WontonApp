@@ -6,7 +6,7 @@ GRANT ALL PRIVILEGES on Wontons.* to 'webapp'@'%';
 flush PRIVILEGES;
 
 CREATE TABLE tables (
-    table_num char(3) PRIMARY KEY NOT NULL,
+    table_num varchar(3) PRIMARY KEY NOT NULL,
     state BOOLEAN,
     occupancy INTEGER NOT NULL
 );
@@ -36,7 +36,7 @@ CREATE TABLE customers (
         FOREIGN KEY (table_num) REFERENCES tables (table_num)
 );
 
-INSERT INTO tables VALUES(001, FALSE, 6), (002, FALSE, 4), (003, FALSE, 2), (004, FALSE, 4), (005, TRUE, 4);
+INSERT INTO tables VALUES(1, FALSE, 6), (2, FALSE, 4), (3, FALSE, 2), (4, FALSE, 4), (5, TRUE, 4);
 
 INSERT INTO waiters VALUES(100000, 10, 'Karen', NULL), (123457, 4, 'Joshua', 100000),
 (123456, 3, 'Angel', 100000);
